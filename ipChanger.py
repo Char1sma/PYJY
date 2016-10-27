@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # FileName		: ipChanger.py
-# Description	: 公司内网自动寻找一个可用IP
+# Description		: 公司内网自动寻找一个可用IP
 # Version		: 0.1 beta
 # Date			: 2016-10-27
 # Thank			: http://blog.sina.com.cn/s/blog_62c02a630100lyuk.html
@@ -75,7 +75,7 @@ def assign_ip(nicId,prefix,netmask,gateway,maindns,standbydns):
 		nicConfig=[nicId,tPrefix,netmask,gateway,maindns,standbydns]
 		set_ip(nicConfig,False)
 		time.sleep(1)
-		if ping_server(prefix + '254'):
+		if ping_server(gateway):
 			exit()
 		else:
 			pass
