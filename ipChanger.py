@@ -10,6 +10,7 @@ import os,sys,wmi,time
 wmiService = wmi.WMI()
 nicConfigs = wmiService.Win32_NetworkAdapterConfiguration(IPEnabled = True)
 nicConfigsAll = wmiService.Win32_NetworkAdapterConfiguration()
+
 def view(nicConfigs):
 	for objNicConfig in nicConfigs:
 		print (objNicConfig.Description,":",objNicConfig.SettingID)
@@ -86,12 +87,11 @@ def argv_im(argvs):
 	elif count == 2:
 		if (argvs[1] == '--list-all') or (argvs[1] == '-a') or (argvs[1] == '-all'):
 			view(nicConfigsAll)
-	elif count == 3:
-		if (argvs[1] == '--auto-set') or (argvs[1] == '-as'):
-			nicConfig = argvs[2:3:1]
-			assign_ip(nicConfig[0],nicConfig[1])
 	else:
-		if (argvs[1] == '--set-ip') or (argvs[1] == '-s'):
+		if (argvs[1] == '--auto-set') or (argvs[1] == '-as'):
+			nicConfig = argvs[2:8:1]
+			assign_ip(nicConfig[0],nicConfig[1],nicConfig[2],nicConfig[3],nicConfig[4],nicConfig[5])
+		elif (argvs[1] == '--set-ip') or (argvs[1] == '-s'):
 			nicConfig = argvs[2:8:1]
 			set_ip(nicConfig)
 		else:
