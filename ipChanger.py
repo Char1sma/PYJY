@@ -4,7 +4,7 @@
 # Description		: 公司内网自动寻找一个可用IP
 # Version		: 0.1 beta
 # Date			: 2016-10-27
-# Thank			: http://blog.sina.com.cn/s/blog_62c02a630100lyuk.html
+# Thanks			: http://blog.sina.com.cn/s/blog_62c02a630100lyuk.html
 #
 import os,sys,wmi,time
 wmiService = wmi.WMI()
